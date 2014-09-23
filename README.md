@@ -31,3 +31,22 @@ What would be the state of the collection after the update?
 { "_id" : ObjectId("507b7c601eb13126c9e3dcca"), "population" : 2500000 }
 ```
 
+using $set Command
+-------------------
+**Quiz: Using the $set Command**
+
+For the users collection, the documents are of the form
+{
+	"_id" : "myrnarackham",
+	"phone" : "301-512-7434",
+	"country" : "US"
+}
+Please set myrnarackham's country code to "RU" but leave the rest of the document (and the rest of the collection) unchanged. 
+
+Hint: You should not need to pass the "phone" field to the update query. 
+
+This is a fully functional web shell, so please press enter for your query to get passed to the server, just like you would for the command line shell.
+
+```ruby
+db.users.update({phone:'301-512-7434', {$set:{{country:'RU'}})
+```
