@@ -15,7 +15,6 @@ db.scores.count({type:"essay", score:{$gt:90}})
 ```
 Wholesale Updating of a Document
 -------------------------------
-```
 
 Quiz: Wholesale Updating of a Document
 
@@ -27,9 +26,7 @@ What would be the state of the collection after the update?
 
 { "_id" : "Texas", "population" : 2500000, "land_locked" : 1 }
 { "_id" : "Texas", "population" : 3000000, "land_locked" : 1 }
-{ "_id" : "Texas", "population" : 30000000 }
+**{ "_id" : "Texas", "population" : 30000000 } **
 { "_id" : ObjectId("507b7c601eb13126c9e3dcca"), "population" : 2500000 }
 
 
-
-```
