@@ -115,3 +115,22 @@ db.array.update({_id:0},{$addToSet:{a:5}})
 ```
 If the element 5 exist in array 'a' it will do nothing else it will add the element 5 onto the array
 
+**Quiz: Using $push, $pop, $pull, $pushAll, $pullAll, $addToSet**
+
+
+Suppose you have the following document in your friends collection:
+```ruby
+{ _id : "Mike", interests : [ "chess", "botany" ] }
+```
+
+What will the result of the following updates be?
+```ruby
+db.friends.update( { _id : "Mike" }, { $push : { interests : "skydiving" } } );
+db.friends.update( { _id : "Mike" }, { $pop : { interests : -1 } } );
+db.friends.update( { _id : "Mike" }, { $addToSet : { interests : "skydiving" } } );
+db.friends.update( { _id : "Mike" }, { $pushAll: { interests : [ "skydiving" , "skiing" ] } } );
+```
+**ANS**:
+````ruby
+{ _id : "Mike" , "interests" : [ "botany", "skydiving", "skydiving", "skiing" ] 
+}```
