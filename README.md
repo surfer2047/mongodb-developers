@@ -50,3 +50,34 @@ This is a fully functional web shell, so please press enter for your query to ge
 ```ruby
 db.users.update({phone:'301-512-7434', {$set:{{country:'RU'}})
 ```
+Using the $unset Command
+-----------------------
+**Quiz: Using the $unset Command**
+
+Write an update query that will remove the "interests" field in the following document in the users collection.
+{ 
+    "_id" : "jimmy" , 
+    "favorite_color" : "blue" , 
+    "interests" : [ "debating" , "politics" ] 
+}
+Do not simply empty the array. Remove the key : value pair from the document. 
+
+This is a fully functional web shell, so please press enter for your query to get passed to the server, just like you would for the command line shell
+
+```ruby
+db.users.update({_id='jimmy'}, {$unset:{interests:1}})
+```
+
+Using $push, $pop, $pull, $pushAll, $pullAll, $addToSet Commands
+----------------------------------------------------------------
+
+first writing the documents consistring of array, 
+```ruby
+db.arrays.insert({_id:0, a:[1,2,3,4,5]})
+```
+In the above Examples to update the third value of array a , just we will use the update commands with $set
+```ruby
+db.arrays.update({id:0,},{$set:{a.2:3}})
+``` 
+This command will update the value of a=2 to a=3
+
