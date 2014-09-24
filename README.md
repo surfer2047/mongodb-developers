@@ -96,6 +96,22 @@ To remove the First element of array, just use the *pop* with value -1
 
 **The $pop:1 will remove the last element of array while $pop:-1 will remove the first element of array**
 
+**$pushall operator**
+push all operator add all the specified element at the last of the array
+```ruby
+db.array.update({_id:0},{$pushall:{a:[1,2,3]}})
+```
 
+$pullAll operator: It will remove all the specified element from the array
 
+```ruby
+db.array.update({_id:0},{$pullAll:{a:[1,2,3]}})
+```
+
+**$addToSet operator**
+addToSet operator will only add the non occurance elements on the array, if the element exists on the array, it will do nothing
+```ruby
+db.array.update({_id:0},{$addToSet:{a:5}})
+```
+If the element 5 exist in array 'a' it will do nothing else it will add the element 5 onto the array
 
