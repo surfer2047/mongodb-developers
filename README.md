@@ -73,11 +73,29 @@ Using $push, $pop, $pull, $pushAll, $pullAll, $addToSet Commands
 
 first writing the documents consistring of array, 
 ```ruby
-db.arrays.insert({_id:0, a:[1,2,3,4,5]})
+db.array.insert({_id:0, a:[1,2,3,4,5]})
 ```
 In the above Examples to update the third value of array a , just we will use the update commands with $set
 ```ruby
-db.arrays.update({id:0,},{$set:{a.2:3}})
+db.array.update({id:0,},{$set:{a.2:3}})
 ``` 
 This command will update the value of a=2 to a=3
+
+To add elements to array, we can simply use push command
+like It will add the array element at last 
+```ruby
+db.array.update({_id:0},{$push:{a:6}})
+```
+To remove the last element of array, we can use *pop* keyword
+like
+```ruby
+db.array.update({_id:0},{$pop:{a:1}})
+```
+
+To remove the First element of array, just use the *pop* with value -1
+
+**The $pop:1 will remove the last element of array while $pop:-1 will remove the first element of array**
+
+
+
 
