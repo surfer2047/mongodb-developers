@@ -133,4 +133,11 @@ db.friends.update( { _id : "Mike" }, { $pushAll: { interests : [ "skydiving" , "
 **ANS**:
 ````ruby
 { _id : "Mike" , "interests" : [ "botany", "skydiving", "skydiving", "skiing" ] 
-}```
+
+Upserts
+--------
+This Operator will update the Documents even, if there is no documents
+for instace
+```ruby
+db.people.update({name:"Manoj"}, {$set:{age:40}}, {upsert:true})
+```
