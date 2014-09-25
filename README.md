@@ -141,3 +141,16 @@ for instace
 ```ruby
 db.people.update({name:"Manoj"}, {$set:{age:40}}, {upsert:true})
 ```
+**Quiz: Upsert**
+
+After performing the following update on an empty collection
+```ruby
+db.foo.update( { username : 'bar' }, { '$set' : { 'interests': [ 'cat' , 'dog' ] } } , { upsert : true } ); 
+```
+What could be a document in the collection?
+```ruby
+{ "_id" : ObjectId("507b78232e8dfde94c149949"), "interests" : [ "cat", "dog" ]}
+{"interests" : [ "cat", "dog" ], "username" : "bar" }
+{}
+{ "_id" : ObjectId("507b78232e8dfde94c149949"), "interests" : [ "cat", "dog" ], "username" : "bar" } (ANS)
+```
